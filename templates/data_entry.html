@@ -1,0 +1,237 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="page-card">
+
+    <div class="text-center mb-5">
+
+        <h2 class="section-title">
+            AI Fraud Detection System
+        </h2>
+
+        <p class="text-muted">
+            Enter the transaction details below for AI-powered fraud analysis.
+        </p>
+
+    </div>
+
+    <form method="POST" action="{{ url_for('data_entry') }}">
+
+        <!-- Transaction Information -->
+
+        <div class="card shadow-sm mb-4">
+
+            <div class="card-header bg-primary text-white">
+                <h5 class="mb-0">
+                    Transaction Information
+                </h5>
+            </div>
+
+            <div class="card-body">
+
+                <div class="row g-3">
+
+                    <div class="col-md-4">
+
+                        <label class="form-label">
+                            Transaction Amount (₦)
+                        </label>
+
+                        <input
+                            type="number"
+                            class="form-control"
+                            name="transaction_amount"
+                            step="0.01"
+                            min="1"
+                            placeholder="25000"
+                            required>
+
+                    </div>
+
+                    <div class="col-md-4">
+
+                        <label class="form-label">
+                            Transaction Type
+                        </label>
+
+                        <select
+                            class="form-select"
+                            name="transaction_type"
+                            required>
+
+                            <option value="">Select Transaction Type</option>
+                            <option value="CASH_IN">Cash In</option>
+                            <option value="CASH_OUT">Cash Out</option>
+                            <option value="DEBIT">Debit</option>
+                            <option value="PAYMENT">Payment</option>
+                            <option value="TRANSFER">Transfer</option>
+
+                        </select>
+
+                    </div>
+
+                    <div class="col-md-4">
+
+                        <label class="form-label">
+                            Transaction Hour
+                        </label>
+
+                        <input
+                            type="number"
+                            class="form-control"
+                            name="transaction_hour"
+                            min="0"
+                            max="23"
+                            placeholder="14"
+                            required>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Account Information -->
+
+        <div class="card shadow-sm mb-4">
+
+            <div class="card-header bg-success text-white">
+                <h5 class="mb-0">
+                    Account Information
+                </h5>
+            </div>
+
+            <div class="card-body">
+
+                <div class="row g-3">
+
+                    <div class="col-md-6">
+
+                        <label class="form-label">
+                            Sender Account Number
+                        </label>
+
+                        <input
+                            type="text"
+                            class="form-control"
+                            name="sender_account"
+                            maxlength="10"
+                            minlength="10"
+                            pattern="[0-9]{10}"
+                            required>
+
+                    </div>
+
+                    <div class="col-md-6">
+
+                        <label class="form-label">
+                            Receiver Account Number
+                        </label>
+
+                        <input
+                            type="text"
+                            class="form-control"
+                            name="receiver_account"
+                            maxlength="10"
+                            minlength="10"
+                            pattern="[0-9]{10}"
+                            required>
+
+                    </div>
+
+                    <div class="col-md-12">
+
+                        <label class="form-label">
+                            Email Address
+                        </label>
+
+                        <input
+                            type="email"
+                            class="form-control"
+                            name="email"
+                            placeholder="example@gmail.com"
+                            required>
+
+                        <small class="text-muted">
+                            Your fraud analysis report will be sent automatically to this email.
+                        </small>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Balance Information -->
+
+        <div class="card shadow-sm mb-4">
+
+            <div class="card-header bg-warning">
+                <h5 class="mb-0">
+                    Account Balances
+                </h5>
+            </div>
+
+            <div class="card-body">
+
+                <div class="row g-3">
+
+                    <div class="col-md-6">
+
+                        <label class="form-label">
+                            Sender Balance Before Transaction (₦)
+                        </label>
+
+                        <input
+                            type="number"
+                            class="form-control"
+                            name="sender_balance_before"
+                            step="0.01"
+                            min="0"
+                            required>
+
+                    </div>
+
+                    <div class="col-md-6">
+
+                        <label class="form-label">
+                            Receiver Balance Before Transaction (₦)
+                        </label>
+
+                        <input
+                            type="number"
+                            class="form-control"
+                            name="receiver_balance_before"
+                            step="0.01"
+                            min="0"
+                            required>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="text-center">
+
+            <button
+                type="submit"
+                class="btn btn-primary btn-lg">
+
+                Analyze Transaction
+
+            </button>
+
+        </div>
+
+    </form>
+
+</div>
+
+{% endblock %}

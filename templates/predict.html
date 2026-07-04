@@ -1,0 +1,185 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="page-card">
+
+    <div class="text-center mb-5">
+
+        <h2 class="section-title">
+            Fraud Detection Result
+        </h2>
+
+        <p class="text-muted">
+            The transaction has been analyzed successfully.
+            A detailed report has been sent automatically to the email provided.
+        </p>
+
+    </div>
+
+
+    <!-- Prediction -->
+
+    <div class="card shadow-sm mb-4">
+
+        <div class="card-header bg-primary text-white">
+
+            <h5 class="mb-0">
+                Prediction Summary
+            </h5>
+
+        </div>
+
+        <div class="card-body">
+
+            <div class="row text-center">
+
+                <div class="col-md-4">
+
+                    <h6>Prediction</h6>
+
+                    {% if result == "Fraud" %}
+
+                    <span class="badge bg-danger fs-6">
+                        {{ result }}
+                    </span>
+
+                    {% else %}
+
+                    <span class="badge bg-success fs-6">
+                        {{ result }}
+                    </span>
+
+                    {% endif %}
+
+                </div>
+
+                <div class="col-md-4">
+
+                    <h6>Risk Score</h6>
+
+                    <h4>{{ risk_score }}%</h4>
+
+                </div>
+
+                <div class="col-md-4">
+
+                    <h6>Risk Level</h6>
+
+                    <span class="badge bg-warning text-dark fs-6">
+                        {{ risk_level }}
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- AI Explanation -->
+
+    <div class="card shadow-sm mb-4">
+
+        <div class="card-header bg-success text-white">
+
+            <h5 class="mb-0">
+
+                AI Explanation
+
+            </h5>
+
+        </div>
+
+        <div class="card-body">
+
+            <p style="white-space: pre-line;">
+
+                {{ explanation }}
+
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- Transaction -->
+
+    <div class="card shadow-sm">
+
+        <div class="card-header bg-secondary text-white">
+
+            <h5 class="mb-0">
+
+                Transaction Summary
+
+            </h5>
+
+        </div>
+
+        <div class="card-body">
+
+            <table class="table">
+
+                <tr>
+
+                    <th>Transaction Type</th>
+
+                    <td>{{ data.transaction_type }}</td>
+
+                </tr>
+
+                <tr>
+
+                    <th>Amount</th>
+
+                    <td>₦{{ "{:,.2f}".format(data.transaction_amount) }}</td>
+
+                </tr>
+
+                <tr>
+
+                    <th>Transaction Hour</th>
+
+                    <td>{{ data.transaction_hour }}:00</td>
+
+                </tr>
+
+                <tr>
+
+                    <th>Sender Account</th>
+
+                    <td>{{ data.sender_account }}</td>
+
+                </tr>
+
+                <tr>
+
+                    <th>Receiver Account</th>
+
+                    <td>{{ data.receiver_account }}</td>
+
+                </tr>
+
+            </table>
+
+        </div>
+
+    </div>
+
+
+    <div class="text-center mt-5">
+
+        <a href="{{ url_for('data_entry') }}" class="btn btn-primary">
+
+            Analyze Another Transaction
+
+        </a>
+
+    </div>
+
+</div>
+
+{% endblock %}
