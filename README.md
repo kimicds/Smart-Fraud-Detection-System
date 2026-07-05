@@ -149,7 +149,7 @@ FraudShield_AI_ML_Hackathon_2026/
 ├── data/
 │   ├── raw/
 │   ├── processed/
-│   └── synthetic/
+│  
 │
 ├── models/
 │
@@ -163,7 +163,7 @@ FraudShield_AI_ML_Hackathon_2026/
 │
 ├── presentation/
 │
-└── screenshots/
+
 ```
 
 ---
@@ -195,7 +195,7 @@ Groq LLM Explanation
 Recommendations
       │
       ▼
-High Risk?
+     Risk?
       │
  ┌────┴─────┐
  │          │
