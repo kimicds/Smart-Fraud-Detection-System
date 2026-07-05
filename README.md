@@ -294,6 +294,22 @@ Rather than simply identifying fraudulent transactions, the system helps users u
 
 ---
 
+# 🚀 Live AI Solution
+
+FraudShield AI is deployed as a fully functional web application.
+
+🔗 **Live Dashboard:**  
+https://fraudshieldai.hostless.app/
+
+## Features available in the live system:
+- 🔍 Real-time fraud prediction
+- 📊 Risk score classification (Low / Medium / High)
+- 🧠 Explainable AI insights using LLM
+- 📩 Recommended investigation actions
+- ⚠️ High-risk transaction alerts
+
+---
+
 ## 👨‍💻 Developed For
 
 **AI/ML Hackathon Challenge 2026**
